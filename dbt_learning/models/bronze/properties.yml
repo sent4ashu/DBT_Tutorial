@@ -1,0 +1,33 @@
+version: 2
+models:
+  - name: returns #  Must match the filename of a model -- including case sensitivity.
+    config:
+        materialized: view
+        schema: bronze
+  - name: sales
+    columns:
+      - name: sales_id
+        data_tests:
+          - unique
+          - not_null
+  - name: sales
+    columns: 
+      - name: sales_id
+        data_tests:
+        - unique
+        - not_null
+      - name: gross_amount
+        data_tests:
+          - check_for_sale_amount
+  - name: store
+    columns: 
+      - name: state_province
+        data_tests:
+          - accepted_values :
+              arguments:
+                values : ['NY','','CA', 'TX', 'ON']
+
+
+                
+
+
