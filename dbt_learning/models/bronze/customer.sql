@@ -1,1 +1,1 @@
-SELECT * FROM {{ source('source', 'dim_customer') }}
+SELECT * FROM {{ source('source', 'dim_customer') }} 
